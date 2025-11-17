@@ -1,6 +1,7 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react';
+import AssistantScreen from '../screens/AssistantScreen';
 import HomeStack from './HomeStack';
 import ProfileStack from './ProfileStack';
 import SettingsStack from './SettingsStack';
@@ -20,6 +21,8 @@ export default function TabNavigator() {
             iconName = focused ? 'person' : 'person-outline';
           } else if (route.name === 'Settings') {
             iconName = focused ? 'settings' : 'settings-outline';
+          } else if (route.name === 'Assistant') {
+            iconName = focused ? 'chatbubbles' : 'chatbubbles-outline';
           } else {
             iconName = 'help-outline';
           }
@@ -32,6 +35,7 @@ export default function TabNavigator() {
       })}
     >
       <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen name="Assistant" component={AssistantScreen} options={{ title: 'Asistente' }} />
       <Tab.Screen name="Profile" component={ProfileStack} />
       <Tab.Screen name="Settings" component={SettingsStack} />
     </Tab.Navigator>
